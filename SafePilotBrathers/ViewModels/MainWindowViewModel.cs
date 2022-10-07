@@ -1,4 +1,5 @@
-﻿using SafePilotBrathers.ViewModels.Base;
+﻿using SafePilotBrathers.Models;
+using SafePilotBrathers.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,16 @@ namespace SafePilotBrathers.ViewModels
 {
     public class MainWindowViewModel : ViewModel
     {
+        private Safe _safe;
 
+        public MainWindowViewModel()
+        {
+            _safe = new Safe();
+        }
+
+        public void SafeDimensions()
+        {
+            
+        }
     }
 }
