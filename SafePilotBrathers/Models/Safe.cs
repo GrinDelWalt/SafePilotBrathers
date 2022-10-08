@@ -8,8 +8,6 @@ namespace SafePilotBrathers.Models
 {
     public class Safe
     {
-        public int Heigth { get; set; }
-        public int Width { get; set; }
-
+        public int Size { get; set; }
     }
 }
