@@ -56,9 +56,6 @@ namespace SafePilotBrathers.ViewModels
             _safe.Size = 4;
         }
 
-        public void SafeDimensions()
-        {
-
-        }
+        
     }
 }
