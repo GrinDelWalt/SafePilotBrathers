@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace SafePilotBrathers.Interfaces
 {
-    internal interface IRedraw
+    internal class CreatingSafeLock
     {
-        void Rotate();
-        void SetImage(Image image);
+        
     }
 }

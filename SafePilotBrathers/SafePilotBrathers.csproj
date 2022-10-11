@@ -66,7 +66,7 @@
     </Compile>
     <Compile Include="Infrastructure\Commands\Base\Command.cs" />
     <Compile Include="Infrastructure\Commands\LambdaCommand.cs" />
-    <Compile Include="Interfaces\IRedraw.cs" />
+    <Compile Include="Interfaces\CreatingSafeLock.cs" />
     <Compile Include="Models\Safe.cs" />
     <Compile Include="Services\GenerationSafeLock.cs" />
     <Compile Include="Services\PicturesController.cs" />

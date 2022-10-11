@@ -4,6 +4,7 @@ using SafePilotBrathers.ViewModels.Base;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace SafePilotBrathers.ViewModels
@@ -12,6 +13,13 @@ namespace SafePilotBrathers.ViewModels
     {
         private string _title;
         private Safe _safe;
+        private Grid _fieldLockSafe;
+
+        public Grid FieldLockSafe
+        {
+            get => _fieldLockSafe;
+            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
+        }
         public string Title
         {
             get => _title;
