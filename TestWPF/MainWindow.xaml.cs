@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -69,7 +70,6 @@ namespace TestWPF
                 }
             }
             ClearLock();
-            FillingResult();
             _images = new Image[_safeSize.GetLength(0), _safeSize.GetLength(1)];
             gridImage.Children.Clear();
             CreateCellsRow(gridImage);
@@ -117,7 +117,6 @@ namespace TestWPF
 
             for (int i = 0; i < _images.GetLength(1); i++)
             {
-                // Creating Back and Forward Cell
                 _images[rowNumber, i] = new Image();
                 _images[rowNumber, i].Height = 60;
                 _images[rowNumber, i].Width = 60;
@@ -162,8 +161,8 @@ namespace TestWPF
         }
         private void ImageReversal(int x, int y)
         {
-            ImageReversalColumn(x);
             ImageReversalLine(x, y);
+            ImageReversalColumn(x);
         }
         private void ImageReversalLine(int x, int y)
         {
@@ -190,7 +189,6 @@ namespace TestWPF
             {
                 if (_safeSize[i, x] == 1)
                 {
-
                     _images[i, x].Source = Resource1._0.ToBitmapSource();
                     _safeSize[i, x] = 0;
                 }
@@ -200,36 +198,20 @@ namespace TestWPF
                     _safeSize[i, x] = 1;
                 }
             }
-                FillingResult();
-        }
-        private void FillingResult()
-        {
-            for (int x = 0; x < _safeSize.GetLength(0); x++)
-            {
-                int result = 0;
-                for (int i = 0; i < _safeSize.GetLength(1); i++)
-                {
-                    result += _safeSize[i, x];
-                }
-                if (result == _safeSize.GetLength(1))
-                {
-                    _checkingOpeningLock[x] = 1;
-                }
-            }
             ChekingLockSafe();
         }
+        
         private void ChekingLockSafe()
         {
-            int result = 0;
-            foreach (var item in _checkingOpeningLock)
+            var result = 0;
+            IEnumerable<int> array = from int sumArray in _safeSize
+                                     select sumArray;
+            result = array.Sum();
+            //int length = 
+             if (result == _safeSize.Length)
             {
-                result += item;
-            }
-            if (_checkingOpeningLock.Length == result)
-            {
-                Thread.Sleep(100);
                 MessageWarning("Победа");
-                CreatureFieldSafeSize();
+                //CreatureFieldSafeSize();
             }
         }
         private void ClearLock()
